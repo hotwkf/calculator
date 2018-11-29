@@ -1,0 +1,513 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+    <title>蒸汽锅炉选型工具,蒸汽用量计算_浙江力聚热水机有限公司官网</title>
+    <meta name="keywords" content="蒸汽锅炉选型,蒸汽用量计算" />
+    <meta name="description" content="本工具可以对酒店、宾馆等场所的蒸汽用量进行计算，并根据计算出来的蒸汽用量选择对应型号的蒸汽锅炉。" />
+    <style type="text/css">
+        ul,
+        li {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            color: #333;
+            text-decoration: none;
+            font-size: inherit;
+        }
+
+        a:visited {
+            color: #666;
+        }
+
+        a:hover {
+            color: #09f;
+        }
+
+        a:hover,
+        a:active,
+        a:focus {
+            text-decoration: none;
+        }
+
+        .yrnx_ul li {
+            float: left;
+            display: inline;
+            margin: 10px 10px 10px 0;
+        }
+
+        .yrnx_ul li a {
+            padding: 8px 10px;
+            backbround: #fff;
+            border: 1px solid #ccc;
+            display: block;
+        }
+
+        .yrnx_ul li a:hover,
+        .yrnx_ul li a.hover {
+            background: #f1f1f1;
+        }
+
+        #su1,
+        #su2,
+        #su3 {
+            display: none;
+        }
+
+        .su_select input {
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+        }
+
+        .cl_div input {
+            padding: 10px 20px;
+        }
+
+        #result_zq_xx a {
+            padding: 10px;
+            text-decoration: none;
+            color: #39F;
+        }
+
+        #su3 p {
+            text-align: left;
+            font-size: 12px;
+            margin-bottom: 15px;
+            line-height: 22px;
+        }
+
+        body input.result_sl,
+        body input.result_xh {
+            padding: 5px;
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 class="tool_h1_1">
+
+        蒸汽锅炉选型</h1>
+
+    <p class="tool_title_info_1">
+
+        使用过程中遇到问题请联系：4008882572。</p>
+
+    <div class="stream_unit">
+
+        <div class="su_select">
+
+            <p>请选择选型计算方式：</p>
+
+            <ul class="yrnx_ul">
+                <li><a href="javascript:hxx1()" id="s_1">洗衣设备</a></li>
+                <li><a href="javascript:hxx2()" id="s_2">酒店客房数</a></li>
+                <li><a href="javascript:hxx3()" id="s_3">其它</a></li>
+            </ul>
+            <div style="clear:both"></div>
+
+            <div style="display:none;">
+
+                <input class="noborder" name="yrnx" onclick="showsu1()" type="radio" value="1" id="showtype1" />
+                <input class="noborder" name="yrnx" onclick="showsu2()" type="radio" value="2" id="showtype2" />
+                <input class="noborder" name="yrnx" onclick="showsu3()" type="radio" value="3" id="showtype3" />
+
+
+            </div>
+
+            <div id="su1">
+
+                <form>
+
+                    <table class="su1_table">
+
+                        <tbody>
+
+                            <tr>
+
+                                <th>
+
+                                    设备名称</th>
+
+                                <th>
+
+                                    工作能力</th>
+
+                                <th>
+
+                                    台数</th>
+
+                            </tr>
+
+                            <tr class="line">
+
+                                <td>
+
+                                    洗脱机水洗机</td>
+
+                                <td>
+
+                                    <input class="input_par" id="par_xtj" onkeyup="clearNoNum(this)" size="8" />kg</td>
+
+                                <td>
+
+                                    <input class="input_num" id="num_xtj" onkeyup="clearNoNum2(this)" size="4" />台</td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+
+                                    烘干机</td>
+
+                                <td>
+
+                                    <input class="input_par" id="par_hgj" onkeyup="clearNoNum(this)" size="8" />kg</td>
+
+                                <td>
+
+                                    <input class="input_num" id="num_hgj" onkeyup="clearNoNum2(this)" size="4" />台</td>
+
+                            </tr>
+
+                            <tr class="line">
+
+                                <td>
+
+                                    自动干衣机</td>
+
+                                <td>
+
+                                    <input class="input_par" id="par_gyj" onkeyup="clearNoNum(this)" size="8" />kg</td>
+
+                                <td>
+
+                                    <input class="input_num" id="num_gyj" onkeyup="clearNoNum2(this)" size="4" />台</td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+
+                                    干洗机</td>
+
+                                <td>
+
+                                    <input class="input_par" id="par_gxj" size="8" />kg</td>
+
+                                <td>
+
+                                    <input class="input_num" id="num_gxj" onkeyup="clearNoNum2(this)" size="4" />台</td>
+
+                            </tr>
+
+                            <tr class="line">
+
+                                <td>
+
+                                    单滚烫平机</td>
+
+                                <td>&nbsp;
+
+                                </td>
+
+                                <td>
+
+                                    <input class="input_num" id="num_tpj1" onkeyup="clearNoNum2(this)" size="4" />台</td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+
+                                    双滚烫平机</td>
+
+                                <td>&nbsp;
+
+                                </td>
+
+                                <td>
+
+                                    <input class="input_num" id="num_tpj2" onkeyup="clearNoNum2(this)" size="4" />台</td>
+
+                            </tr>
+
+                            <tr class="line">
+
+                                <td>
+
+                                    三滚烫平机</td>
+
+                                <td>&nbsp;
+
+                                </td>
+
+                                <td>
+
+                                    <input class="input_num" id="num_tpj3" onkeyup="clearNoNum2(this)" size="4" />台</td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+
+                                    全自动夹烫机</td>
+
+                                <td>&nbsp;
+
+                                </td>
+
+                                <td>
+
+                                    <input class="input_num" id="num_jtj" onkeyup="clearNoNum2(this)" size="4" />台</td>
+
+                            </tr>
+
+                            <tr class="line">
+
+                                <td>
+
+                                    真空烫台</td>
+
+                                <td>&nbsp;
+
+                                </td>
+
+                                <td>
+
+                                    <input class="input_num" id="num_zktt" onkeyup="clearNoNum2(this)" size="4" />台</td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+
+                                    人像精整机</td>
+
+                                <td>&nbsp;
+
+                                </td>
+
+                                <td>
+
+                                    <input class="input_num" id="num_rxj" onkeyup="clearNoNum2(this)" size="4" />台</td>
+
+                            </tr>
+
+                            <tr class="line">
+
+                                <td>
+
+                                    去渍台</td>
+
+                                <td>&nbsp;
+
+                                </td>
+
+                                <td>
+
+                                    <input class="input_num" id="num_qzt" onkeyup="clearNoNum2(this)" size="4" />台</td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                    <div class="cl_div">
+
+                        <input class="button" onclick="count_su1()" type="button" value="蒸汽计算" /> <input class="button"
+                            type="reset" value="重置" /></div>
+
+                </form>
+
+            </div>
+
+            <div id="su2">
+
+                <form>
+
+                    <table class="su2_table">
+
+                        <tbody>
+
+                            <tr class="line">
+
+                                <td>
+
+                                    客房数量</td>
+
+                                <td>
+
+                                    <input class="input_su2" id="num_kfs" onkeyup="clearNoNum2(this)" size="8" /></td>
+
+                                <td>
+
+                                    间</td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+
+                                    餐位数量</td>
+
+                                <td>
+
+                                    <input class="input_su2" id="num_cw" onkeyup="clearNoNum2(this)" size="8" /></td>
+
+                                <td>
+
+                                    个</td>
+
+                            </tr>
+
+                            <tr class="line">
+
+                                <td>
+
+                                    员工数量</td>
+
+                                <td>
+
+                                    <input class="input_su2" id="num_yg" onkeyup="clearNoNum2(this)" size="8" /></td>
+
+                                <td>
+
+                                    名</td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+
+                                    洗衣房工作时间</td>
+
+                                <td>
+
+                                    <input class="input_su2" id="num_xyf" onkeyup="clearNoNum2(this)" size="8" /></td>
+
+                                <td>
+
+                                    小时</td>
+
+                            </tr>
+
+                            <tr class="line">
+
+                                <td>
+
+                                    入住率（百分比）</td>
+
+                                <td>
+
+                                    <input class="input_su2" id="num_rzl" onkeyup="clearNoNum2(this)" size="8" /></td>
+
+                                <td>
+
+                                    %</td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+
+
+                    <div class="cl_div">
+
+                        <input class="button" onclick="count_su2()" type="button" value="蒸汽计算" /> <input class="button"
+                            type="reset" value="重置" /></div>
+
+
+
+                </form>
+
+            </div>
+
+            <div id="su3">
+
+                <form>
+
+                    <p>
+
+                        如果您已知蒸汽使用量，请输入蒸汽使用量进行选型。<br />
+
+                        不知道蒸汽使用量，请联系我们进行人工选型：4008882572</p>
+
+                    <table class="su3_table">
+
+                        <tbody>
+
+                            <tr class="line">
+
+                                <td>
+
+                                    蒸汽用量</td>
+
+                                <td>
+
+                                    <input class="input_su3" id="su3_stream" onkeyup="clearNoNum(this)" size="10" /></td>
+
+                                <td>
+
+                                    单位：kg</td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                    <div class="cl_div">
+
+                        <input class="button" onclick="count_su3()" type="button" value="锅炉选型" /> <input class="button"
+                            type="reset" value="重置" /></div>
+
+                </form>
+
+            </div>
+
+            <div id="result_zq1">
+
+                &nbsp;</div>
+
+            <div id="result_zq2">
+
+                &nbsp;</div>
+
+            <div id="result_zq3">
+
+                &nbsp;</div>
+
+            <div id="result_zq_xx">
+
+                &nbsp;</div>
+
+        </div>
+
+        <script src="../js/zq_xx_jm.js" type="text/javascript"></script>
+
+
+
+</body>
+
+</html>

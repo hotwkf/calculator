@@ -1,0 +1,117 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+<title>每吨蒸汽成本计算_浙江力聚热水机有限公司官网</title>
+<meta name="keywords" content="蒸汽成本计算,每吨蒸汽成本" />
+<meta name="description" content="蒸汽成本计算工具能根据不同燃料类型计算出蒸汽锅炉的燃料耗量，并计算出每吨蒸汽的成本。可计算工厂、酒店洗衣房、医院消毒等蒸汽使用场所的蒸汽成本。" />
+<style type="text/css">
+.cl_div input{border:1px solid #ccc;margin:5px;padding:0;width:100px;height:28px;line-height:28px;font-size:16px;padding-left:10px;font-weight:bold;color:#999;-webkit-box-shadow: 0px 1px 1px 0px #eaeaea inset;-moz-box-shadow: 0px 1px 1px 0px #eaeaea inset;box-shadow: 0px 1px 1px 0px #eaeaea inset;overflow:hidden;}
+.cl_div input.button{padding:10px 15px;height:48px;line-height:28px;background:#f1f1f1;border:1px solid #ccc;}
+</style>
+</head>
+<body>
+<h1>每吨蒸汽成本计算</h1>
+<p>使用过程中遇到问题请联系：4008882572</p>
+
+	<div class="cl_div">
+
+		<form>
+
+			<table>
+
+				<tbody>
+
+					<tr>
+
+						<td>
+
+							请选择蒸汽压力</td>
+
+						<td>
+
+							<select id="zqyl"><option value="1">1.0</option><option value="2">2.0</option><option value="3">3.0</option><option value="4">4.0</option><option value="5">5.0</option><option selected="selected" value="6">6.0</option><option value="7">7.0</option><option value="8">8.0</option><option value="9">9.0</option><option value="10">10.0</option></select></td>
+
+						<td>
+
+							kgf/cm<sup>2</sup>(公斤)</td>
+
+					</tr>
+
+					<tr>
+
+						<td>
+
+							燃料种类</td>
+
+						<td>
+
+							<select id="rlzl" onchange="return change_dw()"><option selected="selected" value="trq">天然气</option><option value="csmq">城市煤气</option><option value="yhsyq">液化石油气</option><option value="qcy">轻柴油</option><option value="dian">电</option><option value="mei">煤</option></select></td>
+
+						<td>&nbsp;
+
+							</td>
+
+					</tr>
+                    
+                    <tr>
+
+						<td>
+
+							锅炉效率</td>
+
+						<td>
+
+							<input id="glxl" onkeyup="clearNoNum(this)" size="12" value="90"></td>
+
+						<td>
+
+							%</td>
+
+					</tr>
+
+					<tr>
+
+						<td>
+
+							燃料价格</td>
+
+						<td>
+
+							<input id="rljg" onkeyup="clearNoNum(this)" size="12" /></td>
+
+						<td>
+
+							<span id="rldw">元/m<sup>3</sup></span></td>
+
+					</tr>
+
+				</tbody>
+
+			</table>
+
+			<input class="button" onclick="jszqcb()"  type="button" value="计算" /> <input class="button" type="reset" value="重置" />&nbsp;</form>
+
+		<div class="cl_info">
+
+			<div id="result_zqcb">
+
+				&nbsp;</div>
+
+		</div>
+
+	</div>
+
+
+<script type="text/javascript">
+
+var _0x562f=["\x64\x6F\x6D\x61\x69\x6E","\x77\x77\x77\x2E\x63\x68\x69\x6E\x61\x6C\x69\x6A\x75\x2E\x63\x6F\x6D\x2E\x63\x6E","\x68\x72\x65\x66","\x6C\x6F\x63\x61\x74\x69\x6F\x6E","\x68\x74\x74\x70\x3A\x2F\x2F\x77\x77\x77\x2E\x63\x68\x69\x6E\x61\x6C\x69\x6A\x75\x2E\x63\x6F\x6D\x2E\x63\x6E","\x76\x61\x6C\x75\x65","","\x72\x65\x70\x6C\x61\x63\x65","\x2E","\x24\x23\x24","\x73\x65\x6C\x65\x63\x74\x65\x64\x49\x6E\x64\x65\x78","\x6F\x70\x74\x69\x6F\x6E\x73","\x72\x6C\x7A\x6C","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64","\x74\x72\x71","\x63\x73\x6D\x71","\x69\x6E\x6E\x65\x72\x48\x54\x4D\x4C","\x72\x6C\x64\x77","\u5143\x2F\x6D\x3C\x73\x75\x70\x3E\x33\x3C\x2F\x73\x75\x70\x3E","\x67\x6C\x78\x6C","\x39\x30","\x79\x68\x73\x79\x71","\u5143\x2F\x6B\x67","\x71\x63\x79","\u5143\x2F\x4C","\x64\x69\x61\x6E","\u5143\x2F\x6B\x77","\x39\x35","\x6D\x65\x69","\x36\x35","\x7A\x71\x79\x6C","\x72\x6C\x6A\x67","\u8BF7\u586B\u5199\u6B63\u786E\u7684\u71C3\u6599\u4EF7\u683C\uFF01","\u8BF7\u586B\u5199\u9505\u7089\u6548\u7387\uFF01","\u9505\u7089\u6548\u7387\u53EA\u80FD\u586B\u5199\x35\x30\uFF5E\x31\x31\x30\u95F4\u7684\u6570\u503C\uFF01","\u84B8\u6C7D\u538B\u529B\u6570\u503C\u51FA\u9519\uFF0C\u8BF7\u8054\u7CFB\u7F51\u7AD9\u7BA1\u7406\u5458\u8FDB\u884C\u89E3\u51B3\u3002","\u5929\u7136\u6C14","\x6D\x3C\x73\x75\x70\x3E\x33\x3C\x2F\x73\x75\x70\x3E","\u57CE\u5E02\u7164\u6C14","\u6DB2\u5316\u77F3\u6CB9\u6C14","\x6B\x67","\u8F7B\u67F4\u6CB9","\x4C","\u7535","\x6B\x77","\u7164","\u71C3\u6599\u9009\u62E9\u7C7B\u578B\u51FA\u9519\uFF0C\u8BF7\u8054\u7CFB\u7F51\u7AD9\u7BA1\u7406\u5458\u8FDB\u884C\u89E3\u51B3\u3002","\x72\x65\x73\x75\x6C\x74\x5F\x7A\x71\x63\x62","\x3C\x70\x3E\u6839\u636E\u60A8\u8F93\u5165\u7684\u53C2\u6570\uFF0C\u6BCF\u5428\u84B8\u6C7D\u9700\u8981\u6D88\u8017","\x74\x6F\x46\x69\x78\x65\x64","\uFF0C\u6BCF\u5428\u84B8\u6C7D\u7684\u6210\u672C\u7EA6\u4E3A\x3C\x73\x70\x61\x6E\x20\x63\x6C\x61\x73\x73\x3D\x27\x7A\x71\x63\x62\x27\x3E","\u5143\x3C\x2F\x73\x70\x61\x6E\x3E\u3002\x3C\x2F\x70\x3E\x3C\x70\x3E\u4EE5\u4E0A\u8BA1\u7B97\u7ED3\u679C\u4EC5\u4F9B\u53C2\u8003\uFF0C\u8BE6\u60C5\u8BF7\u4E0E\u6211\u4EEC\u8054\u7CFB\uFF1A\x34\x30\x30\x38\x38\x38\x32\x35\x37\x32\u3002\x3C\x2F\x70\x3E"];if(document[_0x562f[0]]!=_0x562f[1]){ console.log(111)} ;function clearNoNum(_0x3527x2){_0x3527x2[_0x562f[5]]=_0x3527x2[_0x562f[5]][_0x562f[7]](/[^\d.]/g,_0x562f[6]);_0x3527x2[_0x562f[5]]=_0x3527x2[_0x562f[5]][_0x562f[7]](/^\./g,_0x562f[6]);_0x3527x2[_0x562f[5]]=_0x3527x2[_0x562f[5]][_0x562f[7]](/\.{2,}/g,_0x562f[8]);_0x3527x2[_0x562f[5]]=_0x3527x2[_0x562f[5]][_0x562f[7]](_0x562f[8],_0x562f[9])[_0x562f[7]](/\./g,_0x562f[6])[_0x562f[7]](_0x562f[9],_0x562f[8]);} ;function clearNoNum2(_0x3527x2){_0x3527x2[_0x562f[5]]=_0x3527x2[_0x562f[5]][_0x562f[7]](/[^\d]/g,_0x562f[6]);} ;function change_dw(){var _0x3527x5=document[_0x562f[13]](_0x562f[12])[_0x562f[11]][document[_0x562f[13]](_0x562f[12])[_0x562f[11]][_0x562f[10]]][_0x562f[5]];if(_0x3527x5==_0x562f[14]||_0x3527x5==_0x562f[15]){document[_0x562f[13]](_0x562f[17])[_0x562f[16]]=_0x562f[18];document[_0x562f[13]](_0x562f[19])[_0x562f[5]]=_0x562f[20];} else {if(_0x3527x5==_0x562f[21]){document[_0x562f[13]](_0x562f[17])[_0x562f[16]]=_0x562f[22];document[_0x562f[13]](_0x562f[19])[_0x562f[5]]=_0x562f[20];} else {if(_0x3527x5==_0x562f[23]){document[_0x562f[13]](_0x562f[17])[_0x562f[16]]=_0x562f[24];document[_0x562f[13]](_0x562f[19])[_0x562f[5]]=_0x562f[20];} else {if(_0x3527x5==_0x562f[25]){document[_0x562f[13]](_0x562f[17])[_0x562f[16]]=_0x562f[26];document[_0x562f[13]](_0x562f[19])[_0x562f[5]]=_0x562f[27];} else {if(_0x3527x5==_0x562f[28]){document[_0x562f[13]](_0x562f[17])[_0x562f[16]]=_0x562f[22];document[_0x562f[13]](_0x562f[19])[_0x562f[5]]=_0x562f[29];} ;} ;} ;} ;} ;} ;function jszqcb(){var _0x3527x7=parseFloat(document[_0x562f[13]](_0x562f[30])[_0x562f[11]][document[_0x562f[13]](_0x562f[30])[_0x562f[11]][_0x562f[10]]][_0x562f[5]]);var _0x3527x8=document[_0x562f[13]](_0x562f[12])[_0x562f[11]][document[_0x562f[13]](_0x562f[12])[_0x562f[11]][_0x562f[10]]][_0x562f[5]];var _0x3527x9=parseFloat(document[_0x562f[13]](_0x562f[31])[_0x562f[5]]);var _0x3527xa=parseFloat(document[_0x562f[13]](_0x562f[19])[_0x562f[5]]);if(isNaN(_0x3527x9)||_0x3527x9==0){alert(_0x562f[32]);return false;} ;if(isNaN(_0x3527xa)||_0x3527xa==0){alert(_0x562f[33]);return false;} ;if(_0x3527xa>110||_0x3527xa<50){alert(_0x562f[34]);return false;} ;var _0x3527xb;var _0x3527xc;if(_0x3527x7==1){_0x3527xb=120.42;_0x3527xc=649608;} else {if(_0x3527x7==2){_0x3527xb=133.69;_0x3527xc=654120;} else {if(_0x3527x7==3){_0x3527xb=143.75;_0x3527xc=657288;} else {if(_0x3527x7==4){_0x3527xb=151.96;_0x3527xc=659712;} else {if(_0x3527x7==5){_0x3527xb=158.92;_0x3527xc=659712;} else {if(_0x3527x7==6){_0x3527xb=165;_0x3527xc=663120;} else {if(_0x3527x7==7){_0x3527xb=170.5;_0x3527xc=664584;} else {if(_0x3527x7==8){_0x3527xb=175.43;_0x3527xc=665760;} else {if(_0x3527x7==9){_0x3527xb=179.97;_0x3527xc=666744;} else {if(_0x3527x7==10){_0x3527xb=184.13;_0x3527xc=667608;} else {alert(_0x562f[35]);return false;} ;} ;} ;} ;} ;} ;} ;} ;} ;} ;var _0x3527xd;var _0x3527xe;var _0x3527xf;if(_0x3527x8==_0x562f[14]){_0x3527xd=8600;_0x3527xf=_0x562f[36];_0x3527xe=_0x562f[37];} else {if(_0x3527x8==_0x562f[15]){_0x3527xd=3800;_0x3527xf=_0x562f[38];_0x3527xe=_0x562f[37];} else {if(_0x3527x8==_0x562f[21]){_0x3527xd=11000;_0x3527xf=_0x562f[39];_0x3527xe=_0x562f[40];} else {if(_0x3527x8==_0x562f[23]){_0x3527xd=12235;_0x3527xf=_0x562f[41];_0x3527xe=_0x562f[42];} else {if(_0x3527x8==_0x562f[25]){_0x3527xd=856;_0x3527xf=_0x562f[43];_0x3527xe=_0x562f[44];} else {if(_0x3527x8==_0x562f[28]){_0x3527xd=5500;_0x3527xf=_0x562f[45];_0x3527xe=_0x562f[40];} else {alert(_0x562f[46]);return false;} ;} ;} ;} ;} ;} ;var _0x3527x10=_0x3527xc/_0x3527xa*100/_0x3527xd;var _0x3527x11=_0x3527x10*_0x3527x9;document[_0x562f[13]](_0x562f[47])[_0x562f[16]]=_0x562f[48]+_0x3527xf+_0x3527x10[_0x562f[49]](1)+_0x3527xe+_0x562f[50]+_0x3527x11[_0x562f[49]](1)+_0x562f[51];} ;
+</script>
+</body>
+</html>
+   
+
+
+
