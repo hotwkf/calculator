@@ -1,377 +1,1110 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no"
+    />
     <title>热水锅炉选型工具,热负荷计算工具</title>
     <meta name="keywords" content="热水锅炉选型,热负荷计算" />
-    <meta name="description" content="本工具可对酒店宾馆、住宅小区、学校、商业场所等供暖及卫生热水使用场合进行热负荷估算，并根据计算结果选出对应型号的热水锅炉。" />
+    <meta
+      name="description"
+      content="本工具可对酒店宾馆、住宅小区、学校、商业场所等供暖及卫生热水使用场合进行热负荷估算，并根据计算结果选出对应型号的热水锅炉。"
+    />
 
     <style type="text/css">
-        ul,
-        li {
-            margin: 0;
-            padding: 0;
-        }
+      ul,
+      li {
+        margin: 0;
+        padding: 0;
+      }
 
-        li {
-            list-style: none;
-        }
+      li {
+        list-style: none;
+      }
 
-        a {
-            color: #333;
-            text-decoration: none;
-            font-size: inherit;
-        }
+      a {
+        color: #333;
+        text-decoration: none;
+        font-size: inherit;
+      }
 
-        a:visited {
-            color: #666;
-        }
+      a:visited {
+        color: #666;
+      }
 
-        a:hover {
-            color: #09f;
-        }
+      a:hover {
+        color: #09f;
+      }
 
-        a:hover,
-        a:active,
-        a:focus {
-            text-decoration: none;
-        }
+      a:hover,
+      a:active,
+      a:focus {
+        text-decoration: none;
+      }
 
-        .yrnx_ul li {
-            float: left;
-            display: inline;
-            margin: 10px 10px 10px 0;
-        }
+      .yrnx_ul li {
+        float: left;
+        display: inline;
+        margin: 10px 10px 10px 0;
+      }
 
-        .yrnx_ul li a {
-            padding: 8px 10px;
-            backbround: #fff;
-            border: 1px solid #ccc;
-            display: block;
-        }
+      .yrnx_ul li a {
+        padding: 8px 10px;
+        backbround: #fff;
+        border: 1px solid #ccc;
+        display: block;
+      }
 
-        .yrnx_ul li a:hover,
-        .yrnx_ul li a.hover {
-            background: #f1f1f1;
-        }
+      .yrnx_ul li a:hover,
+      .yrnx_ul li a.hover {
+        background: #f1f1f1;
+      }
 
-        .form_item {
-            clear: both;
-            font-size: 14px;
-            height: 50px;
-        }
+      .form_item {
+        clear: both;
+        font-size: 14px;
+        height: 50px;
+      }
 
-        .form_tit {
-            width: 140px;
-            float: left;
-            height: 50px;
-            line-height: 41px;
-            font-weight: normal;
-            color: #666;
-            text-align: left;
-        }
+      .form_tit {
+        width: 140px;
+        float: left;
+        height: 50px;
+        line-height: 41px;
+        font-weight: normal;
+        color: #666;
+        text-align: left;
+      }
 
-        .form_radio {
-            float: left;
-            height: 26px;
-            padding: 12px;
-            margin-left: -10px;
-        }
+      .form_radio {
+        float: left;
+        height: 26px;
+        padding: 12px;
+        margin-left: -10px;
+      }
 
-        .form_radio input {
-            margin: 0 10px;
-        }
+      .form_radio input {
+        margin: 0 10px;
+      }
 
-        .form_input {
-            width: 100px;
-            float: left;
-            padding: 0 10px
-        }
+      .form_input {
+        width: 100px;
+        float: left;
+        padding: 0 10px;
+      }
 
-        .form_input input {
-            border: 1px solid #ccc;
-            margin: 0;
-            padding: 0;
-            width: 100px;
-            height: 38px;
-            line-height: 38px;
-            font-size: 16px;
-            padding-left: 10px;
-            font-weight: bold;
-            color: #999;
-        }
+      .form_input input {
+        border: 1px solid #ccc;
+        margin: 0;
+        padding: 0;
+        width: 100px;
+        height: 38px;
+        line-height: 38px;
+        font-size: 16px;
+        padding-left: 10px;
+        font-weight: bold;
+        color: #999;
+      }
 
-        .form_other {
-            float: left;
-            height: 50px;
-            line-height: 41px;
-            padding-left: 10px
-        }
+      .form_other {
+        float: left;
+        height: 50px;
+        line-height: 41px;
+        padding-left: 10px;
+      }
 
-        .form_select {
-            text-align: left;
-        }
+      .form_select {
+        text-align: left;
+      }
 
-        .form_select select {
-            line-height: 40px;
-            font-size: 14px;
-            margin-left: 10px;
-        }
+      .form_select select {
+        line-height: 40px;
+        font-size: 14px;
+        margin-left: 10px;
+      }
 
-        .form_other a {
-            font-size: 12px;
-            padding-left: 15px;
-        }
+      .form_other a {
+        font-size: 12px;
+        padding-left: 15px;
+      }
 
-        #result_rfh {
-            text-align: left;
-            font-size: 14px;
-        }
+      #result_rfh {
+        text-align: left;
+        font-size: 14px;
+      }
 
-        #result_rfh p span {
-            font-size: 24px;
-            color: #F00;
-            padding: 10px;
-        }
+      #result_rfh p span {
+        font-size: 24px;
+        color: #f00;
+        padding: 10px;
+      }
 
-        #result_rfh p.ck {
-            font-size: 12px;
-            padding: 0;
-            margin: 0;
-        }
+      #result_rfh p.ck {
+        font-size: 12px;
+        padding: 0;
+        margin: 0;
+      }
 
-        li {
-            list-style: none
-        }
+      li {
+        list-style: none;
+      }
 
-        #result_xx {
-            text-align: left;
-        }
+      #result_xx {
+        text-align: left;
+      }
 
-        #result_xx p {
-            line-height: 28px;
-            margin: 0;
-        }
+      #result_xx p {
+        line-height: 28px;
+        margin: 0;
+      }
 
-        #result_xx li {
-            font-size: 16px;
-            color: #F00;
-            margin: 10px;
-        }
+      #result_xx li {
+        font-size: 16px;
+        color: #f00;
+        margin: 10px;
+      }
 
-        #result_xx span.boiler_xh {
-            padding-right: 20px;
-        }
+      #result_xx span.boiler_xh {
+        padding-right: 20px;
+      }
 
-        #result_xx p a {
-            padding: 10px;
-            color: #39F;
-        }
+      #result_xx p a {
+        padding: 10px;
+        color: #39f;
+      }
 
-        .rsboiler_xx_div {
-            padding-left: 15px
-        }
+      .rsboiler_xx_div {
+        padding-left: 15px;
+      }
 
-        .form_submit input {
-            padding: 10px 20px;
-        }
+      .form_submit input {
+        padding: 10px 20px;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div id="selectrfh">
-        <h1>热水锅炉选型</h1>
-        <p>使用过程中遇到问题请联系：18646330578</p>
-        <div>
-            <form>
-                <div class="form_item">
+      <h1>热水锅炉选型</h1>
+      <p>使用过程中遇到问题请联系：18646330578</p>
+      <div>
+        <form>
+          <div class="form_item">
+            <div id="select_radiotxt">请选择用热类型：</div>
 
-                    <div id="select_radiotxt">请选择用热类型：</div>
+            <ul class="yrnx_ul">
+              <li><a onclick="hxxs1()" id="s_1">采暖</a></li>
+              <li><a onclick="hxxs2()" id="s_2">卫生热水</a></li>
+              <li><a onclick="hxxs3()" id="s_3">采暖卫生热水两用</a></li>
+            </ul>
 
-                    <ul class="yrnx_ul">
-                        <li><a href="javascript:hxx1()" id="s_1">采暖</a></li>
-                        <li><a href="javascript:hxx2()" id="s_2">卫生热水</a></li>
-                        <li><a href="javascript:hxx3()" id="s_3">采暖卫生热水两用</a></li>
-                    </ul>
+            <div style="display:none;">
+              <input
+                class="noborder"
+                name="yrnx"
+                onclick="showdiv3()"
+                type="radio"
+                value="1"
+                id="yrnx1"
+              />
+              <input
+                class="noborder"
+                name="yrnx"
+                onclick="showdiv4()"
+                type="radio"
+                value="2"
+                id="yrnx2"
+              />
+              <input
+                class="noborder"
+                name="yrnx"
+                onclick="showdiv5()"
+                type="radio"
+                value="3"
+                id="yrnx3"
+              />
+            </div>
+            <div style="clear:both;"></div>
+          </div>
 
-                    <div style="display:none;">
-                        <input class="noborder" name="yrnx" onclick="showdiv3()" type="radio" value="1" id="yrnx1" />
-                        <input class="noborder" name="yrnx" onclick="showdiv4()" type="radio" value="2" id="yrnx2" />
-                        <input class="noborder" name="yrnx" onclick="showdiv5()" type="radio" value="3" id="yrnx3" />
-                    </div>
-                    <div style="clear:both;"></div>
+          <div id="select_cn" style="display:none;">
+            <div class="form_item">
+              <div class="form_tit">请输入供暖面积：</div>
 
-                </div>
+              <div class="form_input">
+                <input
+                  id="gnmj"
+                  name="gnmj"
+                  onkeyup="clearNoNum(this)"
+                  type="text"
+                />
+              </div>
 
-                <div id="select_cn" style="display:none;">
+              <div class="form_other">m<sup>2</sup></div>
+            </div>
+          </div>
 
-                    <div class="form_item">
+          <div id="select_wsrs" style="display: none;">
+            <div class="form_item">
+              <div class="form_tit">请选择住宅类型：</div>
 
-                        <div class="form_tit">
+              <div class="form_select">
+                <select id="zznx" name="zznx">
+                  <option value="1">住宅</option>
+                  <option value="2">别墅</option>
+                  <option value="3">酒店式公寓</option>
+                  <option value="4">宿舍</option>
+                  <option value="5">招待所、旅馆</option>
+                  <option selected="selected" value="6">酒店、宾馆</option>
+                  <option value="7">医院</option>
+                  <option value="8">幼儿园</option>
+                  <option value="9">养老院</option>
+                </select>
+              </div>
+            </div>
 
-                            请输入供暖面积：</div>
+            <div class="form_item">
+              <div class="form_tit">请输入热水使用人数：</div>
 
-                        <div class="form_input">
+              <div class="form_input">
+                <input
+                  id="syrs"
+                  name="syrs"
+                  onkeyup="clearNoNum(this)"
+                  type="text"
+                />
+              </div>
 
-                            <input id="gnmj" name="gnmj" onkeyup="clearNoNum(this)" type="text" /></div>
+              <div class="form_other">人</div>
+            </div>
+          </div>
 
-                        <div class="form_other">
+          <input name="type" type="hidden" value="2" />
 
-                            m<sup>2</sup></div>
+          <div class="form_submit">
+            <input
+              type="button"
+              class="input_submit"
+              id="select_submit"
+              onclick="rfh_js();"
+              style="display: none;"
+              value="提交"
+            />
 
-                    </div>
+            <div class="clear">&nbsp;</div>
+          </div>
+        </form>
 
-                </div>
+        <div id="result_rfh">&nbsp;</div>
 
-                <div id="select_wsrs" style="display: none;">
-
-                    <div class="form_item">
-
-                        <div class="form_tit">
-
-                            请选择住宅类型：</div>
-
-                        <div class="form_select">
-
-                            <select id="zznx" name="zznx">
-                                <option value="1">住宅</option>
-                                <option value="2">别墅</option>
-                                <option value="3">酒店式公寓</option>
-                                <option value="4">宿舍</option>
-                                <option value="5">招待所、旅馆</option>
-                                <option selected="selected" value="6">酒店、宾馆</option>
-                                <option value="7">医院</option>
-                                <option value="8">幼儿园</option>
-                                <option value="9">养老院</option>
-                            </select></div>
-
-                    </div>
-
-                    <div class="form_item">
-
-                        <div class="form_tit">
-
-                            请输入热水使用人数：</div>
-
-                        <div class="form_input">
-
-                            <input id="syrs" name="syrs" onkeyup="clearNoNum(this)" type="text" /></div>
-
-                        <div class="form_other">
-
-                            人</div>
-
-                    </div>
-
-                </div>
-
-                <input name="type" type="hidden" value="2" />
-
-                <div class="form_submit">
-
-                    <input type="button" class="input_submit" id="select_submit" onclick="rfh_js();" style="display: none;"
-                        value="提交" />
-
-                    <div class="clear">
-
-                        &nbsp;</div>
-
-                </div>
-
-            </form>
-
-            <div id="result_rfh">
-
-                &nbsp;</div>
-
-            <div id="result_xx">
-
-                &nbsp;</div>
-
-        </div>
-
+        <div id="result_xx">&nbsp;</div>
+      </div>
     </div>
 
     <script>
-        var off = '';
-        //采暖
-       function hxx1(params) {
-           off = 1;
-           $("#select_cn").css({
-               display:'block'
-           })
-           $("#select_wsrs").css({
-               display: 'none'
-           })
-           $("#select_submit").css({
-               display: 'block'
-           })
-       }
-       //卫生热水
-       function hxx2(params) {
-            off = 2;
-            $("#select_wsrs").css({
-               display: 'block'
-           })
-           $("#select_cn").css({
-               display: 'none'
-           })
-           $("#select_submit").css({
-               display: 'block'
-           })
-        }
-        //采暖和卫生热水
-        function hxx3(params) {
-            off = 3;
-            $("#select_cn").css({
-                display: 'block'
-            })
-            $("#select_wsrs").css({
-                display: 'block'
-            })
-            $("#select_submit").css({
-                display: 'block'
-            })
+      var _0xa45e = [
+        "domain",
+        "www.chinaliju.com.cn",
+        "href",
+        "location",
+        "http://www.chinaliju.com.cn",
+        "click",
+        "yrnx1",
+        "getElementById",
+        "yrnx2",
+        "yrnx3",
+        "select_cn",
+        "select_wsrs",
+        "gnmj",
+        "syrs",
+        "display",
+        "style",
+        "block",
+        "value",
+        "",
+        "请输入采暖面积和卫生热水使用人数！",
+        "请输入采暖面积",
+        "请输入卫生热水使用人数",
+        "replace",
+        ".",
+        "$#$",
+        "yrnx",
+        "getElementsByName",
+        "length",
+        "checked",
+        "item",
+        "getAttribute",
+        "selectedIndex",
+        "options",
+        "zznx",
+        "innerHTML",
+        "result_rfh",
+        "<p>根据您输入的参数计算出的热负荷为:<span>",
+        "toFixed",
+        "kw</span>。约为",
+        "万大卡，",
+        "吨，",
+        "MW。</p>",
+        "none",
+        "select_submit",
+        "className",
+        "s_1",
+        "hover",
+        "s_2",
+        "s_3",
+        "<p>根据所计算出的热负荷，我们为您推荐以下机组：</p><ul><li><span class='boiler_xh'>ZRQ(Y)-",
+        "</span><span class='boiler_sl'>",
+        "</span>台</li></ul>",
+        "<p>点击查看：<a href='http://www.zkboiler.com' target='_blank'>&gt;&gt;产品介绍</a><a href='http://www.zkboiler.com/vacuumboiler/boiler-cg/' target='_blank'>&gt;&gt;技术参数</a></p><p>以上选型仅供参考，如需更准确的选型，请联系我们：4008882572。</p>",
+        "<p>根据所计算出的热负荷，我们为您推荐以下两种方案：</p><ul><li>1、<span class='boiler_xh'>ZRQ(Y)-",
+        "</span>台</li>",
+        "<li>2、<span class='boiler_xh'>ZRQ(Y)-",
+        "我们暂时没有适合热负荷小于2万大卡的机组，请考虑使用其它厂家的机组。",
+        "热负荷高于4000万大卡，请联系我们进行人工选型：4008882572。",
+        "result_xx"
+      ];
+      if (document[_0xa45e[0]] != _0xa45e[1]) {
+        console.log(111);
+      }
+      function hxxs1() {
+        document[_0xa45e[7]](_0xa45e[6])[_0xa45e[5]]();
+      }
 
-        }
-        //输入框检查数字
-        function clearNoNum(params) {
-            //正则删除非整数的字符
-            params.value = params.value.replace(/[^\d]/g, "")
-        }
-        //提交
-        function rfh_js(params) {
-            //off为1：采暖提交，2：卫生热水提交，3：采暖和卫生热水提交
-            if(off == 1){
-                if($("#gnmj")[0].value == '' || $("#gnmj")[0].value == 0){
-                    alert("请输入供暖面积")
-                }else{
-                    console.log($("#gnmj")[0].value);
-                }
-            }else if(off == 2){
-                if ($("#syrs")[0].value == '' || $("#syrs")[0].value == 0) {
-                    alert("请输入卫生热水使用人数")
-                } else {
-                    console.log($("#zznx").val())
-                    console.log($("#syrs")[0].value);
-                }
-            }else{
-                if ($("#gnmj")[0].value == '' || $("#gnmj")[0].value == 0) {
-                    alert("请输入供暖面积")
-                } else if($("#syrs")[0].value == '' || $("#syrs")[0].value == 0){
-                    alert("请输入卫生热水使用人数")
-                }else {
-                    console.log($("#zznx").val());
-                    console.log($("#gnmj")[0].value);
-                    console.log($("#syrs")[0].value); 
-                }
+      function hxxs2() {
+        document[_0xa45e[7]](_0xa45e[8])[_0xa45e[5]]();
+      }
+
+      function hxxs3() {
+        document[_0xa45e[7]](_0xa45e[9])[_0xa45e[5]]();
+      }
+
+      function validate() {
+        var _0x2c6ax5 = document[_0xa45e[7]](_0xa45e[10]);
+        var _0x2c6ax6 = document[_0xa45e[7]](_0xa45e[11]);
+        var _0x2c6ax7 = document[_0xa45e[7]](_0xa45e[12]);
+        var _0x2c6ax8 = document[_0xa45e[7]](_0xa45e[13]);
+        if (
+          _0x2c6ax5[_0xa45e[15]][_0xa45e[14]] == _0xa45e[16] &&
+          _0x2c6ax6[_0xa45e[15]][_0xa45e[14]] == _0xa45e[16] &&
+          (_0x2c6ax7[_0xa45e[17]] == _0xa45e[18] ||
+            _0x2c6ax8[_0xa45e[17]] == _0xa45e[18] ||
+            _0x2c6ax7[_0xa45e[17]] == 0 ||
+            _0x2c6ax8[_0xa45e[17]] == 0)
+        ) {
+          alert(_0xa45e[19]);
+          return false;
+        } else {
+          if (
+            _0x2c6ax5[_0xa45e[15]][_0xa45e[14]] == _0xa45e[16] &&
+            (_0x2c6ax7[_0xa45e[17]] == _0xa45e[18] ||
+              _0x2c6ax7[_0xa45e[17]] == 0)
+          ) {
+            alert(_0xa45e[20]);
+            return false;
+          } else {
+            if (
+              _0x2c6ax6[_0xa45e[15]][_0xa45e[14]] == _0xa45e[16] &&
+              (_0x2c6ax8[_0xa45e[17]] == _0xa45e[18] ||
+                _0x2c6ax8[_0xa45e[17]] == 0)
+            ) {
+              alert(_0xa45e[21]);
+              return false;
+            } else {
+              return true;
             }
+          }
         }
+      }
+
+      function clearNoNum(_0x2c6axa) {
+        _0x2c6axa[_0xa45e[17]] = _0x2c6axa[_0xa45e[17]][_0xa45e[22]](
+          /[^\d]/g,
+          _0xa45e[18]
+        );
+        _0x2c6axa[_0xa45e[17]] = _0x2c6axa[_0xa45e[17]][_0xa45e[22]](
+          /^\./g,
+          _0xa45e[18]
+        );
+        _0x2c6axa[_0xa45e[17]] = _0x2c6axa[_0xa45e[17]][_0xa45e[22]](
+          /\.{2,}/g,
+          _0xa45e[23]
+        );
+        _0x2c6axa[_0xa45e[17]] = _0x2c6axa[_0xa45e[17]]
+          [_0xa45e[22]](_0xa45e[23], _0xa45e[24])
+          [_0xa45e[22]](/\./g, _0xa45e[18])
+          [_0xa45e[22]](_0xa45e[24], _0xa45e[23]);
+      }
+
+      function rfh_js() {
+        validate();
+        var _0x2c6axc = document[_0xa45e[26]](_0xa45e[25]);
+        var _0x2c6axd;
+        for (
+          var _0x2c6axe = 0;
+          _0x2c6axe < _0x2c6axc[_0xa45e[27]];
+          _0x2c6axe++
+        ) {
+          if (_0x2c6axc[_0xa45e[29]](_0x2c6axe)[_0xa45e[28]]) {
+            _0x2c6axd = _0x2c6axc[_0xa45e[29]](_0x2c6axe)[_0xa45e[30]](
+              _0xa45e[17]
+            );
+          }
+        }
+        var _0x2c6axf = parseInt(_0x2c6axd);
+        var _0x2c6ax10;
+        var _0x2c6ax11 = parseInt(
+          document[_0xa45e[7]](_0xa45e[12])[_0xa45e[17]]
+        );
+        var _0x2c6ax12 = parseInt(
+          document[_0xa45e[7]](_0xa45e[33])[_0xa45e[32]][
+            document[_0xa45e[7]](_0xa45e[33])[_0xa45e[32]][_0xa45e[31]]
+          ][_0xa45e[17]]
+        );
+        console.log(_0x2c6ax12);
+        
+        var _0x2c6ax13 = parseInt(
+          document[_0xa45e[7]](_0xa45e[13])[_0xa45e[17]]
+        );
+        var _0x2c6ax14;
+        var _0x2c6ax15;
+        switch (_0x2c6axf) {
+          case 1:
+            if (_0x2c6ax11 <= 3000) {
+              _0x2c6ax10 = _0x2c6ax11 * 0.1;
+            } else {
+              if (_0x2c6ax11 > 3000 && _0x2c6ax11 <= 5000) {
+                _0x2c6ax10 = _0x2c6ax11 * 0.08;
+              } else {
+                if (_0x2c6ax11 > 5000) {
+                  _0x2c6ax10 = _0x2c6ax11 * 0.07;
+                }
+              }
+            }
+            break;
+          case 2:
+            if (_0x2c6ax12 == 1) {
+              _0x2c6ax14 = 80;
+              _0x2c6ax15 = 4.8;
+            } else {
+              if (_0x2c6ax12 == 2) {
+                _0x2c6ax14 = 90;
+                _0x2c6ax15 = 4.21;
+              } else {
+                if (_0x2c6ax12 == 3) {
+                  _0x2c6ax14 = 90;
+                  _0x2c6ax15 = 4;
+                } else {
+                  if (_0x2c6ax12 == 4) {
+                    _0x2c6ax14 = 85;
+                    _0x2c6ax15 = 4.8;
+                  } else {
+                    if (_0x2c6ax12 == 5) {
+                      _0x2c6ax14 = 60;
+                      _0x2c6ax15 = 3.84;
+                    } else {
+                      if (_0x2c6ax12 == 6) {
+                        _0x2c6ax14 = 160;
+                        _0x2c6ax15 = 3.33;
+                      } else {
+                        if (_0x2c6ax12 == 7) {
+                          _0x2c6ax14 = 130;
+                          _0x2c6ax15 = 3.63;
+                        } else {
+                          if (_0x2c6ax12 == 8) {
+                            _0x2c6ax14 = 30;
+                            _0x2c6ax15 = 4.8;
+                          } else {
+                            if (_0x2c6ax12 == 9) {
+                              _0x2c6ax14 = 60;
+                              _0x2c6ax15 = 3.2;
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            var _0x2c6ax10 =
+              ((_0x2c6ax13 * _0x2c6ax14 * 4.187 * 0.983 * 55 * _0x2c6ax15) /
+                24) *
+              0.0002778;
+            break;
+          case 3:
+            if (_0x2c6ax11 <= 3000) {
+              _0x2c6ax10 = _0x2c6ax11 * 0.1;
+            } else {
+              if (_0x2c6ax11 > 3000 && _0x2c6ax11 <= 5000) {
+                _0x2c6ax10 = _0x2c6ax11 * 0.08;
+              } else {
+                if (_0x2c6ax11 > 5000) {
+                  _0x2c6ax10 = _0x2c6ax11 * 0.06;
+                }
+              }
+            }
+            if (_0x2c6ax12 == 1) {
+              _0x2c6ax14 = 80;
+              _0x2c6ax15 = 4.8;
+            } else {
+              if (_0x2c6ax12 == 2) {
+                _0x2c6ax14 = 90;
+                _0x2c6ax15 = 4.21;
+              } else {
+                if (_0x2c6ax12 == 3) {
+                  _0x2c6ax14 = 90;
+                  _0x2c6ax15 = 4;
+                } else {
+                  if (_0x2c6ax12 == 4) {
+                    _0x2c6ax14 = 85;
+                    _0x2c6ax15 = 4.8;
+                  } else {
+                    if (_0x2c6ax12 == 5) {
+                      _0x2c6ax14 = 60;
+                      _0x2c6ax15 = 3.84;
+                    } else {
+                      if (_0x2c6ax12 == 6) {
+                        _0x2c6ax14 = 160;
+                        _0x2c6ax15 = 3.33;
+                      } else {
+                        if (_0x2c6ax12 == 7) {
+                          _0x2c6ax14 = 130;
+                          _0x2c6ax15 = 3.63;
+                        } else {
+                          if (_0x2c6ax12 == 8) {
+                            _0x2c6ax14 = 30;
+                            _0x2c6ax15 = 4.8;
+                          } else {
+                            if (_0x2c6ax12 == 9) {
+                              _0x2c6ax14 = 60;
+                              _0x2c6ax15 = 3.2;
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            var _0x2c6ax10 =
+              _0x2c6ax10 +
+              ((_0x2c6ax13 * _0x2c6ax14 * 4.187 * 0.983 * 55 * _0x2c6ax15) /
+                24) *
+                0.0002778;
+            break;
+          default:
+        }
+        if (isNaN(_0x2c6ax10)) {
+        } else {
+          var _0x2c6ax16 = _0x2c6ax10 / 11.6306;
+          var _0x2c6ax17 = _0x2c6ax10 / 697.8;
+          var _0x2c6ax18 = _0x2c6ax10 / 1000;
+          document[_0xa45e[7]](_0xa45e[35])[_0xa45e[34]] =
+            _0xa45e[36] +
+            _0x2c6ax10[_0xa45e[37]](1) +
+            _0xa45e[38] +
+            _0x2c6ax16[_0xa45e[37]](1) +
+            _0xa45e[39] +
+            _0x2c6ax17[_0xa45e[37]](2) +
+            _0xa45e[40] +
+            _0x2c6ax18[_0xa45e[37]](2) +
+            _0xa45e[41];
+          xx_zkboiler(_0x2c6ax16);
+        }
+      }
+
+      function showdiv3() {
+        document[_0xa45e[7]](_0xa45e[10])[_0xa45e[15]][_0xa45e[14]] =
+          _0xa45e[16];
+        document[_0xa45e[7]](_0xa45e[11])[_0xa45e[15]][_0xa45e[14]] =
+          _0xa45e[42];
+        document[_0xa45e[7]](_0xa45e[43])[_0xa45e[15]][_0xa45e[14]] =
+          _0xa45e[16];
+        document[_0xa45e[7]](_0xa45e[45])[_0xa45e[44]] = _0xa45e[46];
+        document[_0xa45e[7]](_0xa45e[47])[_0xa45e[44]] = _0xa45e[18];
+        document[_0xa45e[7]](_0xa45e[48])[_0xa45e[44]] = _0xa45e[18];
+      }
+
+      function showdiv4() {
+        document[_0xa45e[7]](_0xa45e[11])[_0xa45e[15]][_0xa45e[14]] =
+          _0xa45e[16];
+        document[_0xa45e[7]](_0xa45e[10])[_0xa45e[15]][_0xa45e[14]] =
+          _0xa45e[42];
+        document[_0xa45e[7]](_0xa45e[43])[_0xa45e[15]][_0xa45e[14]] =
+          _0xa45e[16];
+        document[_0xa45e[7]](_0xa45e[45])[_0xa45e[44]] = _0xa45e[18];
+        document[_0xa45e[7]](_0xa45e[47])[_0xa45e[44]] = _0xa45e[46];
+        document[_0xa45e[7]](_0xa45e[48])[_0xa45e[44]] = _0xa45e[18];
+      }
+
+      function showdiv5() {
+        document[_0xa45e[7]](_0xa45e[10])[_0xa45e[15]][_0xa45e[14]] =
+          _0xa45e[16];
+        document[_0xa45e[7]](_0xa45e[11])[_0xa45e[15]][_0xa45e[14]] =
+          _0xa45e[16];
+        document[_0xa45e[7]](_0xa45e[43])[_0xa45e[15]][_0xa45e[14]] =
+          _0xa45e[16];
+        document[_0xa45e[7]](_0xa45e[45])[_0xa45e[44]] = _0xa45e[18];
+        document[_0xa45e[7]](_0xa45e[47])[_0xa45e[44]] = _0xa45e[18];
+        document[_0xa45e[7]](_0xa45e[48])[_0xa45e[44]] = _0xa45e[46];
+      }
+
+      function xx_zkboiler(_0x2c6ax10) {
+        var _0x2c6ax5 = _0xa45e[49];
+        var _0x2c6ax1d;
+        var _0x2c6ax6 = _0xa45e[50];
+        var _0x2c6ax1e;
+        var _0x2c6ax1f = _0xa45e[51];
+        var _0x2c6ax20 = _0xa45e[52];
+        var _0x2c6ax21 = _0xa45e[53];
+        var _0x2c6ax22;
+        var _0x2c6ax23 = _0xa45e[50];
+        var _0x2c6ax24;
+        var _0x2c6ax25 = _0xa45e[54];
+        var _0x2c6ax26 = _0xa45e[55];
+        var _0x2c6ax27;
+        var _0x2c6ax28 = _0xa45e[50];
+        var _0x2c6ax29;
+        var _0x2c6ax2a = _0xa45e[51];
+        var _0x2c6ax2b;
+        if (_0x2c6ax10 <= 2) {
+          _0x2c6ax2b = _0xa45e[56];
+        } else {
+          if (_0x2c6ax10 > 2 && _0x2c6ax10 <= 11) {
+            _0x2c6ax1d = 10;
+            _0x2c6ax1e = 1;
+            _0x2c6ax2b =
+              _0x2c6ax5 +
+              _0x2c6ax1d +
+              _0x2c6ax6 +
+              _0x2c6ax1e +
+              _0x2c6ax1f +
+              _0x2c6ax20;
+          } else {
+            if (_0x2c6ax10 > 11 && _0x2c6ax10 <= 16) {
+              _0x2c6ax1d = 15;
+              _0x2c6ax1e = 1;
+              _0x2c6ax2b =
+                _0x2c6ax5 +
+                _0x2c6ax1d +
+                _0x2c6ax6 +
+                _0x2c6ax1e +
+                _0x2c6ax1f +
+                _0x2c6ax20;
+            } else {
+              if (_0x2c6ax10 > 16 && _0x2c6ax10 <= 22) {
+                _0x2c6ax1d = 20;
+                _0x2c6ax1e = 1;
+                _0x2c6ax2b =
+                  _0x2c6ax5 +
+                  _0x2c6ax1d +
+                  _0x2c6ax6 +
+                  _0x2c6ax1e +
+                  _0x2c6ax1f +
+                  _0x2c6ax20;
+              } else {
+                if (_0x2c6ax10 > 22 && _0x2c6ax10 <= 32) {
+                  _0x2c6ax1d = 30;
+                  _0x2c6ax1e = 1;
+                  _0x2c6ax2b =
+                    _0x2c6ax5 +
+                    _0x2c6ax1d +
+                    _0x2c6ax6 +
+                    _0x2c6ax1e +
+                    _0x2c6ax1f +
+                    _0x2c6ax20;
+                } else {
+                  if (_0x2c6ax10 > 32 && _0x2c6ax10 <= 42) {
+                    _0x2c6ax1d = 40;
+                    _0x2c6ax1e = 1;
+                    _0x2c6ax2b =
+                      _0x2c6ax5 +
+                      _0x2c6ax1d +
+                      _0x2c6ax6 +
+                      _0x2c6ax1e +
+                      _0x2c6ax1f +
+                      _0x2c6ax20;
+                  } else {
+                    if (_0x2c6ax10 > 42 && _0x2c6ax10 <= 52) {
+                      _0x2c6ax1d = 50;
+                      _0x2c6ax1e = 1;
+                      _0x2c6ax2b =
+                        _0x2c6ax5 +
+                        _0x2c6ax1d +
+                        _0x2c6ax6 +
+                        _0x2c6ax1e +
+                        _0x2c6ax1f +
+                        _0x2c6ax20;
+                    } else {
+                      if (_0x2c6ax10 > 52 && _0x2c6ax10 <= 65) {
+                        _0x2c6ax1d = 60;
+                        _0x2c6ax1e = 1;
+                        _0x2c6ax2b =
+                          _0x2c6ax5 +
+                          _0x2c6ax1d +
+                          _0x2c6ax6 +
+                          _0x2c6ax1e +
+                          _0x2c6ax1f +
+                          _0x2c6ax20;
+                      } else {
+                        if (_0x2c6ax10 > 65 && _0x2c6ax10 <= 85) {
+                          _0x2c6ax1d = 80;
+                          _0x2c6ax1e = 1;
+                          _0x2c6ax2b =
+                            _0x2c6ax5 +
+                            _0x2c6ax1d +
+                            _0x2c6ax6 +
+                            _0x2c6ax1e +
+                            _0x2c6ax1f +
+                            _0x2c6ax20;
+                        } else {
+                          if (_0x2c6ax10 > 85 && _0x2c6ax10 <= 105) {
+                            _0x2c6ax1d = 100;
+                            _0x2c6ax1e = 1;
+                            _0x2c6ax2b =
+                              _0x2c6ax5 +
+                              _0x2c6ax1d +
+                              _0x2c6ax6 +
+                              _0x2c6ax1e +
+                              _0x2c6ax1f +
+                              _0x2c6ax20;
+                          } else {
+                            if (_0x2c6ax10 > 105 && _0x2c6ax10 <= 130) {
+                              _0x2c6ax1d = 60;
+                              _0x2c6ax1e = 2;
+                              _0x2c6ax2b =
+                                _0x2c6ax5 +
+                                _0x2c6ax1d +
+                                _0x2c6ax6 +
+                                _0x2c6ax1e +
+                                _0x2c6ax1f +
+                                _0x2c6ax20;
+                            } else {
+                              if (_0x2c6ax10 > 130 && _0x2c6ax10 <= 170) {
+                                _0x2c6ax1d = 80;
+                                _0x2c6ax1e = 2;
+                                _0x2c6ax2b =
+                                  _0x2c6ax5 +
+                                  _0x2c6ax1d +
+                                  _0x2c6ax6 +
+                                  _0x2c6ax1e +
+                                  _0x2c6ax1f +
+                                  _0x2c6ax20;
+                              } else {
+                                if (_0x2c6ax10 > 170 && _0x2c6ax10 <= 210) {
+                                  _0x2c6ax1d = 100;
+                                  _0x2c6ax1e = 2;
+                                  _0x2c6ax2b =
+                                    _0x2c6ax5 +
+                                    _0x2c6ax1d +
+                                    _0x2c6ax6 +
+                                    _0x2c6ax1e +
+                                    _0x2c6ax1f +
+                                    _0x2c6ax20;
+                                } else {
+                                  if (_0x2c6ax10 > 210 && _0x2c6ax10 <= 250) {
+                                    _0x2c6ax1d = 120;
+                                    _0x2c6ax1e = 2;
+                                    _0x2c6ax2b =
+                                      _0x2c6ax5 +
+                                      _0x2c6ax1d +
+                                      _0x2c6ax6 +
+                                      _0x2c6ax1e +
+                                      _0x2c6ax1f +
+                                      _0x2c6ax20;
+                                  } else {
+                                    if (_0x2c6ax10 > 250 && _0x2c6ax10 <= 320) {
+                                      _0x2c6ax1d = 150;
+                                      _0x2c6ax1e = 2;
+                                      _0x2c6ax2b =
+                                        _0x2c6ax5 +
+                                        _0x2c6ax1d +
+                                        _0x2c6ax6 +
+                                        _0x2c6ax1e +
+                                        _0x2c6ax1f +
+                                        _0x2c6ax20;
+                                    } else {
+                                      if (
+                                        _0x2c6ax10 > 320 &&
+                                        _0x2c6ax10 <= 380
+                                      ) {
+                                        _0x2c6ax1d = 180;
+                                        _0x2c6ax1e = 2;
+                                        _0x2c6ax2b =
+                                          _0x2c6ax5 +
+                                          _0x2c6ax1d +
+                                          _0x2c6ax6 +
+                                          _0x2c6ax1e +
+                                          _0x2c6ax1f +
+                                          _0x2c6ax20;
+                                      } else {
+                                        if (
+                                          _0x2c6ax10 > 380 &&
+                                          _0x2c6ax10 <= 420
+                                        ) {
+                                          _0x2c6ax1d = 200;
+                                          _0x2c6ax1e = 2;
+                                          _0x2c6ax2b =
+                                            _0x2c6ax5 +
+                                            _0x2c6ax1d +
+                                            _0x2c6ax6 +
+                                            _0x2c6ax1e +
+                                            _0x2c6ax1f +
+                                            _0x2c6ax20;
+                                        } else {
+                                          if (
+                                            _0x2c6ax10 > 420 &&
+                                            _0x2c6ax10 <= 500
+                                          ) {
+                                            _0x2c6ax22 = 240;
+                                            _0x2c6ax24 = 2;
+                                            _0x2c6ax27 = 150;
+                                            _0x2c6ax29 = 3;
+                                            _0x2c6ax2b =
+                                              _0x2c6ax21 +
+                                              _0x2c6ax22 +
+                                              _0x2c6ax23 +
+                                              _0x2c6ax24 +
+                                              _0x2c6ax25 +
+                                              _0x2c6ax26 +
+                                              _0x2c6ax27 +
+                                              _0x2c6ax28 +
+                                              _0x2c6ax29 +
+                                              _0x2c6ax2a +
+                                              _0x2c6ax20;
+                                          } else {
+                                            if (
+                                              _0x2c6ax10 > 500 &&
+                                              _0x2c6ax10 <= 550
+                                            ) {
+                                              _0x2c6ax22 = 300;
+                                              _0x2c6ax24 = 2;
+                                              _0x2c6ax27 = 180;
+                                              _0x2c6ax29 = 3;
+                                              _0x2c6ax2b =
+                                                _0x2c6ax21 +
+                                                _0x2c6ax22 +
+                                                _0x2c6ax23 +
+                                                _0x2c6ax24 +
+                                                _0x2c6ax25 +
+                                                _0x2c6ax26 +
+                                                _0x2c6ax27 +
+                                                _0x2c6ax28 +
+                                                _0x2c6ax29 +
+                                                _0x2c6ax2a +
+                                                _0x2c6ax20;
+                                            } else {
+                                              if (
+                                                _0x2c6ax10 > 550 &&
+                                                _0x2c6ax10 <= 620
+                                              ) {
+                                                _0x2c6ax22 = 300;
+                                                _0x2c6ax24 = 2;
+                                                _0x2c6ax27 = 200;
+                                                _0x2c6ax29 = 3;
+                                                _0x2c6ax2b =
+                                                  _0x2c6ax21 +
+                                                  _0x2c6ax22 +
+                                                  _0x2c6ax23 +
+                                                  _0x2c6ax24 +
+                                                  _0x2c6ax25 +
+                                                  _0x2c6ax26 +
+                                                  _0x2c6ax27 +
+                                                  _0x2c6ax28 +
+                                                  _0x2c6ax29 +
+                                                  _0x2c6ax2a +
+                                                  _0x2c6ax20;
+                                              } else {
+                                                if (
+                                                  _0x2c6ax10 > 620 &&
+                                                  _0x2c6ax10 <= 800
+                                                ) {
+                                                  _0x2c6ax22 = 360;
+                                                  _0x2c6ax24 = 2;
+                                                  _0x2c6ax27 = 240;
+                                                  _0x2c6ax29 = 3;
+                                                  _0x2c6ax2b =
+                                                    _0x2c6ax21 +
+                                                    _0x2c6ax22 +
+                                                    _0x2c6ax23 +
+                                                    _0x2c6ax24 +
+                                                    _0x2c6ax25 +
+                                                    _0x2c6ax26 +
+                                                    _0x2c6ax27 +
+                                                    _0x2c6ax28 +
+                                                    _0x2c6ax29 +
+                                                    _0x2c6ax2a +
+                                                    _0x2c6ax20;
+                                                } else {
+                                                  if (
+                                                    _0x2c6ax10 > 800 &&
+                                                    _0x2c6ax10 <= 1000
+                                                  ) {
+                                                    _0x2c6ax22 = 480;
+                                                    _0x2c6ax24 = 2;
+                                                    _0x2c6ax27 = 300;
+                                                    _0x2c6ax29 = 3;
+                                                    _0x2c6ax2b =
+                                                      _0x2c6ax21 +
+                                                      _0x2c6ax22 +
+                                                      _0x2c6ax23 +
+                                                      _0x2c6ax24 +
+                                                      _0x2c6ax25 +
+                                                      _0x2c6ax26 +
+                                                      _0x2c6ax27 +
+                                                      _0x2c6ax28 +
+                                                      _0x2c6ax29 +
+                                                      _0x2c6ax2a +
+                                                      _0x2c6ax20;
+                                                  } else {
+                                                    if (
+                                                      _0x2c6ax10 > 1000 &&
+                                                      _0x2c6ax10 <= 1300
+                                                    ) {
+                                                      _0x2c6ax22 = 600;
+                                                      _0x2c6ax24 = 2;
+                                                      _0x2c6ax27 = 300;
+                                                      _0x2c6ax29 = 4;
+                                                      _0x2c6ax2b =
+                                                        _0x2c6ax21 +
+                                                        _0x2c6ax22 +
+                                                        _0x2c6ax23 +
+                                                        _0x2c6ax24 +
+                                                        _0x2c6ax25 +
+                                                        _0x2c6ax26 +
+                                                        _0x2c6ax27 +
+                                                        _0x2c6ax28 +
+                                                        _0x2c6ax29 +
+                                                        _0x2c6ax2a +
+                                                        _0x2c6ax20;
+                                                    } else {
+                                                      if (
+                                                        _0x2c6ax10 > 1300 &&
+                                                        _0x2c6ax10 <= 1500
+                                                      ) {
+                                                        _0x2c6ax1d = 480;
+                                                        _0x2c6ax1e = 3;
+                                                        _0x2c6ax2b =
+                                                          _0x2c6ax5 +
+                                                          _0x2c6ax1d +
+                                                          _0x2c6ax6 +
+                                                          _0x2c6ax1e +
+                                                          _0x2c6ax1f +
+                                                          _0x2c6ax20;
+                                                      } else {
+                                                        if (
+                                                          _0x2c6ax10 > 1500 &&
+                                                          _0x2c6ax10 <= 2000
+                                                        ) {
+                                                          _0x2c6ax22 = 600;
+                                                          _0x2c6ax24 = 3;
+                                                          _0x2c6ax27 = 900;
+                                                          _0x2c6ax29 = 2;
+                                                          _0x2c6ax2b =
+                                                            _0x2c6ax21 +
+                                                            _0x2c6ax22 +
+                                                            _0x2c6ax23 +
+                                                            _0x2c6ax24 +
+                                                            _0x2c6ax25 +
+                                                            _0x2c6ax26 +
+                                                            _0x2c6ax27 +
+                                                            _0x2c6ax28 +
+                                                            _0x2c6ax29 +
+                                                            _0x2c6ax2a +
+                                                            _0x2c6ax20;
+                                                        } else {
+                                                          if (
+                                                            _0x2c6ax10 > 2000 &&
+                                                            _0x2c6ax10 <= 2500
+                                                          ) {
+                                                            _0x2c6ax22 = 600;
+                                                            _0x2c6ax24 = 4;
+                                                            _0x2c6ax27 = 1200;
+                                                            _0x2c6ax29 = 2;
+                                                            _0x2c6ax2b =
+                                                              _0x2c6ax21 +
+                                                              _0x2c6ax22 +
+                                                              _0x2c6ax23 +
+                                                              _0x2c6ax24 +
+                                                              _0x2c6ax25 +
+                                                              _0x2c6ax26 +
+                                                              _0x2c6ax27 +
+                                                              _0x2c6ax28 +
+                                                              _0x2c6ax29 +
+                                                              _0x2c6ax2a +
+                                                              _0x2c6ax20;
+                                                          } else {
+                                                            if (
+                                                              _0x2c6ax10 >
+                                                                2500 &&
+                                                              _0x2c6ax10 <= 3000
+                                                            ) {
+                                                              _0x2c6ax1d = 900;
+                                                              _0x2c6ax1e = 3;
+                                                              _0x2c6ax2b =
+                                                                _0x2c6ax5 +
+                                                                _0x2c6ax1d +
+                                                                _0x2c6ax6 +
+                                                                _0x2c6ax1e +
+                                                                _0x2c6ax1f +
+                                                                _0x2c6ax20;
+                                                            } else {
+                                                              if (
+                                                                _0x2c6ax10 >
+                                                                  3000 &&
+                                                                _0x2c6ax10 <=
+                                                                  4000
+                                                              ) {
+                                                                _0x2c6ax1d = 1200;
+                                                                _0x2c6ax1e = 3;
+                                                                _0x2c6ax2b =
+                                                                  _0x2c6ax5 +
+                                                                  _0x2c6ax1d +
+                                                                  _0x2c6ax6 +
+                                                                  _0x2c6ax1e +
+                                                                  _0x2c6ax1f +
+                                                                  _0x2c6ax20;
+                                                              } else {
+                                                                if (
+                                                                  _0x2c6ax10 >
+                                                                  4000
+                                                                ) {
+                                                                  _0x2c6ax2b =
+                                                                    _0xa45e[57];
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        document[_0xa45e[7]](_0xa45e[58])[_0xa45e[34]] = _0x2c6ax2b;
+      }
     </script>
-    
-
-</body>
-
+  </body>
 </html>
